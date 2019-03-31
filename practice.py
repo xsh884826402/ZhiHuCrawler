@@ -1,29 +1,9 @@
-import  requests
-# session = requests.session()
-# from bs4 import BeautifulSoup
-# import lxml
-#
-link = "https://www.zhihu.com/hot"
-# postdata = {
-#     'username' : '13051191950',
-#     'password' : 'mima2161228'
-# }
-headers  = {
-'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-# # login_page = session.post(link,data= postdata, headers=headers)
-# re = requests.get(link, headers=headers)
-# print(re.status_code)
-# print(re.text)
-# with open('./1.html','w',encoding='utf-8') as f:
-#     f.write(re.text)
-cookies = {}
-with open('./cookies.txt','r') as f:
-    for line in f.readline().split(';'):
-        name, value = line.strip().split('=',1)
-        cookies[name] = value
-# print(cookies)
-res = requests.get(link,headers=headers,cookies=cookies)
-print(res.status_code)
-# print(res.text)
-with open('1.html','w',encoding='utf-8') as f:
-    f.write(res.text)
+import re
+from pymongo import MongoClient
+# basic_str = 'https://www.zhihu.com/api/v4/questions/317637620/answers?include=data%5B%2A%5D.is_normal%2Cadmin_closed_comment%2Creward_info%2Cis_collapsed%2Cannotation_action%2Cannotation_detail%2Ccollapse_reason%2Cis_sticky%2Ccollapsed_by%2Csuggest_edit%2Ccomment_count%2Ccan_comment%2Ccontent%2Ceditable_content%2Cvoteup_count%2Creshipment_settings%2Ccomment_permission%2Ccreated_time%2Cupdated_time%2Creview_info%2Crelevant_info%2Cquestion%2Cexcerpt%2Crelationship.is_authorized%2Cis_author%2Cvoting%2Cis_thanked%2Cis_nothelp%2Cis_labeled%2Cis_recognized%3Bdata%5B%2A%5D.mark_infos%5B%2A%5D.url%3Bdata%5B%2A%5D.author.follower_count%2Cbadge%5B%2A%5D.topics&limit=10&offset=10&platform=desktop&sort_by=default'
+client = MongoClient('localhost',27017)
+db = client.blog_database
+collection = db.blog
+dic = {}
+dic['str'] = 'str'
+collection.insert_one(dic)
