@@ -19,3 +19,8 @@
   - request     
 
 ***请自行安装依赖beautifulsoup，request，pymongo***
+##使用方法
+- 登录自己的知乎账号（推荐使用Chrome）
+- 按F12，点击Network，然后刷新网页，此时会出现hot，将右侧的cookies拷贝到code文件夹下的cookies.txt文件中
+- 可以按照需要，运行Crawler或者Crawler了
+
