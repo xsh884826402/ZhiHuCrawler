@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import json
-from Crawler import Crawler_Answer_for_each_Question
+from Crawler_Answer_for_each_Question import Crawler_Answer_for_each_Question
 def Crawler_search(keyword):
     #address = address_0 + 'keyword' + address_1  + '偏移量' + address_2
     address_0 = 'https://www.zhihu.com/api/v4/search_v3?t=general&q='
@@ -22,13 +22,17 @@ def Crawler_search(keyword):
     offset = 0
     dic_question_list = {}
     print('Before While')
+    count = 0
     while(True):
-        time.sleep(2)
+        time.sleep(4)
         url = address_0 + keyword + address_1 + str(offset) + address_2
         print('URL',url)
         res = requests.get(url=url, headers=headers,cookies=cookies)
         print('Status_code',res.status_code)
         content = json.loads(res.text)
+        if count >=10:
+            break
+        count += 1
         if len(content) == 0:
             print('None')
             break

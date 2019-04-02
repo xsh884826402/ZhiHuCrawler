@@ -4,7 +4,7 @@
 import requests
 from Crawler_Answer_for_each_Question import Crawler_Answer_for_each_Question
 from bs4 import BeautifulSoup
-def Crawler_Daily_hot(Threshold = 500):
+def Crawler_Daily_hot(Threshold = 300):
     #知乎热榜url
     link = "https://www.zhihu.com/hot"
     headers = {
